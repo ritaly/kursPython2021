@@ -11,14 +11,25 @@ def multiply_sentence(counter):
     sentence = "I love Python!"
     return sentence * counter
 
+def multiply(quote, counter):
+    return (quote + '!')  * counter
+
 # main part of the code
-print('*********')
-ask_about_mood()
+# print('*********')
+# ask_about_mood()
+#
+# response = input('--> answer here: ')
+# show(response)
+#
+# exclamation = multiply_sentence(5)
+# print(exclamation)
+# print('-----END----')
 
-response = input('--> answer here: ')
-show(response)
+quote1 = multiply("It's not a bug!", 2)
+print(quote1)
 
-exclamation = multiply_sentence(5)
-print(exclamation)
-print('-----END----')
+#...
+
+quote2 = multiply("Hacktober fest is the best~~", 3)
+print(quote2)
 
