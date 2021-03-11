@@ -1,6 +1,6 @@
 def get_books():
+    print(lemon_cake)
     counter = int(input('How many books you want to add to the collections? '))
-
     books_collection = []
     for book in range(counter):
         title = input('Book title: ')
