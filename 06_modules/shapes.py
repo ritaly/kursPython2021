@@ -11,3 +11,9 @@ def rectangle(a, b):
 def triangle(a, h):
     triangle_field = 0.5 * a * h
     return triangle_field
+
+
+if __name__ == '__main__':
+    print(circle(5))
+    print(triangle(12, 4))
+

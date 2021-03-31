@@ -12,3 +12,4 @@ print("I'm inside example module")
 century = 'XXI'
 thing = 'teapot'
 
+print('moduł - wartosc zmiennej __name__:', __name__)
