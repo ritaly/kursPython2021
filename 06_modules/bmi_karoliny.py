@@ -3,7 +3,6 @@
 def open_advice(filename):
     with open(filename, "r") as fopen:
         lines = fopen.read()
-
     print(lines)
 
 
