@@ -2,36 +2,29 @@ import bmi
 
 
 def get_weight():
-    while True:
-        try:
-            weight = float(input('Podaj wage w kg: '))
-        except (ValueError, TypeError):
-            print('To nie jest prawidłowa wartość! Spróbuj jeszcze raz')
-            continue
-
-        if weight > 30:
-            break
-        else:
-            print('Twoja waga nieprawdopodobnie niska. Podaj wagę jeszcze raz')
-
+    question = 'Podaj wage w kg: '
+    weight = ask_user(question, 30, 250)
     return weight
 
 
 def get_height():
+    return ask_user('Podaj wzrost w metrach: ', 1.5, 2.35)
+
+
+def ask_user(question, minimum, maximum):
     while True:
         try:
-            height = float(input('Podaj wzrost w metrach: '))
+            value = float(input(question))
         except (ValueError, TypeError):
             print('To nie jest prawidłowa wartość! Spróbuj jeszcze raz')
             continue
 
-        if 1.5 < height < 2.35:
+        if minimum < value < maximum:
             break
         else:
-            print('Twoj wzorst jest nieprawdopodobmy. Podaj wartość jeszcze raz')
+            print('Podana wartość jest nieprawdopodobna. Spróbuj jeszcze raz')
 
-    return height
-
+    return value
 
 def open_advice(filename):
     filename = filename + ".txt"
