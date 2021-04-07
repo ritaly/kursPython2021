@@ -26,11 +26,11 @@ if __name__ == '__main__':
         try:
             with open(filename, 'r') as fopen:
                 lines = fopen.readlines()
+            break
         except FileNotFoundError:
             print('File not found. Try again ;) ')
             continue
 
-        break
 
     quote = select_quote(lines)
     quote = reformat(quote)
