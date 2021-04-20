@@ -35,6 +35,13 @@ class RegisteredUser():
         }
         return res
 
+    @classmethod
+    def get_patient_by_id(cls, instance_id):
+        for obj in cls.instances:
+            if obj.id == instance_id:
+                return obj
+        return None
+
 
 app = FastAPI()
 
@@ -55,7 +62,7 @@ def decrypt(response: Response, password: str = '', password_hash: str = ''):
 
 
 @app.post("/register")
-async def create_user(request: Request, response: Response, user: User):
+def create_user(request: Request, response: Response, user: User):
     try:
         date_as_datetime = datetime.strptime(request.headers['date'], '%a, %d %b %Y %H:%M:%S %Z')
         register_date = date_as_datetime.strftime('%Y-%m-%d')
@@ -66,3 +73,23 @@ async def create_user(request: Request, response: Response, user: User):
     response.status_code = status.HTTP_201_CREATED
 
     return result.register_user()
+
+
+@app.get("/patient/{patient_id}")
+def get_patient(patient_id: str, response: Response):
+    try:
+        patient_id = int(patient_id)
+    except ValueError:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return response
+
+    if patient_id < 1:
+        response.status_code = status.HTTP_400_BAD_REQUEST
+        return response
+
+    patient = RegisteredUser.get_patient_by_id(patient_id)
+    if patient:
+        return patient
+    else:
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return response
