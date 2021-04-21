@@ -20,7 +20,7 @@ class Queue:
             return 'Nie ma wiecej elementów'
 
 if __name__ == "__main__":
-    queue_list = [1,2,3]
+    queue_list = [1, 2, 3]
     queue1 = Queue(queue_list)
     queue1.show()
     print(queue1.is_empty())
