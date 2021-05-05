@@ -1,10 +1,10 @@
 def uppercase_decorator(func):
-    def wrapper():
+    def nested_function():
         # txt = func()
         # txt = txt.upper()
         # return txt
         return func().upper()
-    return wrapper
+    return nested_function
 
 
 @uppercase_decorator
