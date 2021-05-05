@@ -24,7 +24,6 @@ class Student:
     def set_avg(cls, new_avg):
         cls.min_avg = new_avg
 
-
 anna = Student('Anna', 'Kowalska', 22, 4.8)
 jan = Student('Jan', 'Nowak', 23, 4.3)
 
@@ -32,3 +31,4 @@ print(anna.min_avg)
 anna.set_avg(4.2)
 print(anna.min_avg)
 print(jan.min_avg)
+
