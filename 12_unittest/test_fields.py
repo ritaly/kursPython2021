@@ -14,6 +14,7 @@ class FieldsTestCase(unittest.TestCase):
 
     # def test_rectangle_with_incorrect_values(self):
     #     self.assertRaises(ValueError, rectangle, self.a, '***')
+
     def test_rectangle_with_incorrect_values(self):
         with self.assertRaises(ValueError):
             rectangle('***', self.b)
@@ -22,9 +23,18 @@ class FieldsTestCase(unittest.TestCase):
         result = triangle(self.a, self.b)
         self.assertEqual(result, 10)
 
+    def test_triangle_with_incorrect_values(self):
+        with self.assertRaises(ValueError):
+            triangle('***', self.h)
+
     def test_trapezoid_with_correct_values(self):
         result = trapezoid(self.a, self.b, self.h)
         self.assertEqual(result, 12)
+
+    def test_trapezoid_with_incorrect_values(self):
+        with self.assertRaises(ValueError):
+            trapezoid('***', self.b, '---')
+
 
     def tearDown(self):
         del self.a
